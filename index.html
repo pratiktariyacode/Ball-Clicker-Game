@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ball Clicker Game</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    #game {
+      width: 500px;
+      height: 400px;
+      margin: 20px auto;
+      position: relative;
+      border: 3px solid #333;
+      background-color: #e0e0e0;
+    }
+
+    #ball {
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      border-radius: 50%;
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    #score {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ball Clicker Game</h1>
+  <div id="game">
+    <div id="ball"></div>
+  </div>
+  <p>Score: <span id="score">0</span></p>
+
+  <script>
+    let ball = document.getElementById("ball");
+    let score = 0;
+
+    ball.addEventListener("click", () => {
+      score++;
+      document.getElementById("score").innerText = score;
+
+      let game = document.getElementById("game");
+      let x = Math.random() * (game.clientWidth - 50);
+      let y = Math.random() * (game.clientHeight - 50);
+      ball.style.left = x + "px";
+      ball.style.top = y + "px";
+    });
+  </script>
+
+</body>
+</html>
